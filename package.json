@@ -2,11 +2,13 @@
   "name": "gathernotify",
   "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "npx ts-node src/index.ts",
     "test": "echo \"Error: no test specified\"",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "build": "tsc"
   },
   "author": "Gather",
   "license": "ISC",

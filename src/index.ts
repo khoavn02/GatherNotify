@@ -1,3 +1,3 @@
 import { notify } from "./notification";
 
-notify("hi ae");
+module.exports(notify);
