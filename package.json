@@ -23,6 +23,7 @@
   "dependencies": {
     "@aws-sdk/client-sns": "^3.299.0",
     "aws-sdk": "^2.1343.0",
+    "dotenv": "^16.0.3",
     "np": "^7.6.4"
   }
 }
