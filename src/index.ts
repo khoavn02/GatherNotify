@@ -1,3 +1,4 @@
+import Notify from "./notification/notify";
 import LokiLogger from "./logger/loki-logger";
 
-LokiLogger.info('Hello world!')
+export default {Notify, LokiLogger}
