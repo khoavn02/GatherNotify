@@ -1,7 +1,4 @@
-import * as dotenv from "dotenv";
 import AWS from "aws-sdk";
-
-dotenv.config();
 
 const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID;
 const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY;
