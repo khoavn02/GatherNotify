@@ -1,4 +1,14 @@
 # .npmignore
 .env
 
+.idea/
+.vscode/
+
+.eslintrc.js
+.gitignore
+
+tsconfig.json
+package.json
+package-lock.json
+
 src/
