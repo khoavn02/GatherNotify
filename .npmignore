@@ -7,8 +7,4 @@
 .eslintrc.js
 .gitignore
 
-tsconfig.json
-package.json
-package-lock.json
-
 src/
