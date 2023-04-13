@@ -36,3 +36,7 @@ gather-notify/
 
 .sentryclirc
 /assets/icon.png
+/.idea/GatherNotify.iml
+/.idea/modules.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/vcs.xml
