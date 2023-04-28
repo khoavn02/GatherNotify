@@ -1,6 +1,10 @@
-import {createTopicIfNotFound, publishMessage} from "../sns";
+import GatherSNS from "../sns";
 
-class Notify {
+class Notify extends GatherSNS {
+
+    constructor(private readonly region: string, private readonly accessKeyId: string, private readonly secretAccessKey: string) {
+        super(region, accessKeyId, secretAccessKey);
+    }
 
     /**
      * Sends a message to an SNS topic.
@@ -9,9 +13,9 @@ class Notify {
      @param subject The subject of the message (optional).
      @returns Promise that resolves with the response from SNS.
      */
-    static notify = async (type: string, data: unknown, subject?: string) => {
-        const topicArn = await createTopicIfNotFound(type)
-        return await publishMessage(JSON.stringify(data), topicArn, subject);
+    notify = async (type: string, data: unknown, subject?: string) => {
+        const topicArn = await this.createTopicIfNotFound(type)
+        return await this.publishMessage(JSON.stringify(data), topicArn, subject);
     }
 }
 

@@ -1,27 +1,32 @@
-import {createTopicIfNotFound, publishMessage} from "../sns";
+import GatherSNS from "../sns";
 
 const topicName = 'Log'
 
 
-class LokiLogger {
-    static log = async (message: string) => {
-        const topicArn = await createTopicIfNotFound(topicName)
-        await publishMessage(message, topicArn)
+class LokiLogger extends GatherSNS {
+
+    constructor(private readonly region: string, private readonly accessKeyId: string, private readonly secretAccessKey: string) {
+        super(region, accessKeyId, secretAccessKey);
     }
 
-    static info = async (message: unknown) => {
+    log = async (message: string) => {
+        const topicArn = await this.createTopicIfNotFound(topicName)
+        await this.publishMessage(message, topicArn)
+    }
+
+    info = async (message: unknown) => {
         await this.log(`[Info] -- ${JSON.stringify(message)}`)
     }
 
-    static error = async (message: unknown) => {
+    error = async (message: unknown) => {
         await this.log(`[Error] -- ${JSON.stringify(message)}`)
     }
 
-    static warning = async (message: unknown) => {
+    warning = async (message: unknown) => {
         await this.log(`[Warning] -- ${JSON.stringify(message)}`)
     }
 
-    static debug = async (message: unknown) => {
+    debug = async (message: unknown) => {
         await this.log(`[Debug] -- ${JSON.stringify(message)}`)
     }
 }
